@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use Puma as the app server
@@ -28,9 +27,24 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Ruby ODM framework for MongoDB
+gem 'mongoid', '6.0.0.beta'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  # RSpec for Rails-3+
+  gem 'rspec-rails', '~> 3.5'
+
+  # Factory for tests
+  gem "factory_girl_rails"
+
+  # RSpec matchers and macros for Mongoid
+  gem 'mongoid-rspec', git: 'https://github.com/wbigal/mongoid-rspec.git', branch: 'mongoid6'
+
+  # Loads environment variables from `.env`
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -40,9 +54,14 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
 
-  # Loads environment variables from `.env`
-  gem 'dotenv-rails'
+group :test do
+  # Collection of testing matchers extracted from Shoulda
+  gem 'shoulda-matchers', require: false
+
+  # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
