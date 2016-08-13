@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="map" style="width:755px;height:555px"></div>
+    <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: {lat: 43.6533103, lng: -79.3827675},
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          });
+
+          var flightPlanCoordinates = [
+            {lat: 43.6533103, lng: -79.3827675},
+            {lat: 43.6557259, lng: -79.3837332},
+            {lat: 43.6562448, lng: -79.37828979999999},
+            {lat: 43.6557259, lng: -79.3837332}
+          ];
+          var flightPath = new google.maps.Polyline({
+            path: flightPlanCoordinates,
+            geodesic: true,
+            strokeColor: '#FF0000',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+          });
+
+          flightPath.setMap(map);
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
+  </body>
+</html>
