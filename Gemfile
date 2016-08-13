@@ -48,6 +48,9 @@ group :development, :test do
 
   # Loads environment variables from `.env`
   gem 'dotenv-rails'
+
+  # Automatically run your specs (much like autotest).
+  gem 'guard-rspec', '~> 4.2.10', require: false
 end
 
 group :development do
@@ -61,7 +64,7 @@ end
 
 group :test do
   # Collection of testing matchers extracted from Shoulda
-  gem 'shoulda-matchers', require: false
+  # gem 'shoulda-matchers', require: false
 
   # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
   gem 'database_cleaner'
