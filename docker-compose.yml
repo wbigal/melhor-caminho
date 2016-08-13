@@ -1,0 +1,15 @@
+version: '2'
+services:
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+  web:
+    build: .
+    command: bin/rails server --port 3000 --binding 0.0.0.0
+    ports:
+      - "3000:3000"
+    links:
+      - db
+    volumes:
+      - .:/opt/melhor-caminho
