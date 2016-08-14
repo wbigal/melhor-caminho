@@ -5,7 +5,7 @@ RSpec.describe GoogleMapsDirectionsApiClient do
   describe '#get' do
     context 'when api return success' do
       let(:origin) { '-23.5507845,-46.6338611' }
-      let(:destionation) { '-22.908365,-46.6284125' }
+      let(:destionation) { '-23.594908,-46.686052' }
       subject(:response) { GoogleMapsDirectionsApiClient.get origin, destionation }
 
       it 'response status is OK' do

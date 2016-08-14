@@ -7,7 +7,6 @@ class Waypoint
 
   embedded_in :waypointable, polymorphic: true
 
-  validates :location, presence: true, uniqueness: true
   validates :latitude, presence: true, numericality: true
   validates :longitude, presence: true, numericality: true
 end

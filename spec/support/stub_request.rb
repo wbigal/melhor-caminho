@@ -4,7 +4,7 @@ RSpec.configure do |config|
   config.before(:each) do
     stub_request(
         :get,
-        "https://maps.googleapis.com/maps/api/directions/json?departure_time=now&destination=-22.908365,-46.6284125&language=pt-BR&mode=driving&origin=-23.5507845,-46.6338611&units=metric"
+        "https://maps.googleapis.com/maps/api/directions/json?departure_time=now&destination=-23.594908,-46.686052&language=pt-BR&mode=driving&origin=-23.5507845,-46.6338611&units=metric"
       )
       .with(
         headers: {

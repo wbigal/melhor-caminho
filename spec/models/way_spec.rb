@@ -20,4 +20,10 @@ RSpec.describe Way, type: :model do
     it { is_expected.to embed_one(:start_waypoint) }
     it { is_expected.to embed_one(:end_waypoint) }
   end
+
+  describe '#default_destination' do
+    it 'returns default destination concatenated' do
+      expect(Way.default_destination).to eq('-23.594908,-46.686052')
+    end
+  end
 end

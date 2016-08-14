@@ -8,7 +8,6 @@ RSpec.describe Waypoint, type: :model do
   end
 
   context 'validations' do
-    it { is_expected.to validate_presence_of(:location) }
     it { is_expected.to validate_presence_of(:latitude) }
     it { is_expected.to validate_presence_of(:longitude) }
   end
