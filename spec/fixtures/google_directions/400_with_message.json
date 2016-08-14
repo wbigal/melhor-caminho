@@ -1,0 +1,5 @@
+{
+   "error_message" : "Invalid request. Missing the 'origin' parameter.",
+   "routes" : [],
+   "status" : "INVALID_REQUEST"
+}
