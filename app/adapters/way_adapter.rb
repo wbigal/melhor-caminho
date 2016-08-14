@@ -14,7 +14,7 @@ class WayAdapter
       way.end_waypoint = build_waypoint(leg['end_location'], leg['end_address'])
 
       steps.each do |step|
-        way.steps.append(build_step(step))
+        way.steps << build_step(step)
       end
 
       way
@@ -22,9 +22,7 @@ class WayAdapter
 
     private
       def build_step step
-        Step.new(
-          html_instructions: step['html_instructions']
-        )
+        StepAdapter.convert_from_google_json step
       end
 
       def build_waypoint node_location, node_address

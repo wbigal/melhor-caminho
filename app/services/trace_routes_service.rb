@@ -1,16 +1,13 @@
 class TraceRoutesService
   class << self
-    def to_default_destination query_id, lat_origin, lng_origin
-      origin = '-23.572039,-46.726719'
+    def to_default_destination client_id, lat_origin, lng_origin
+      origin = "#{lat_origin},#{lng_origin}"
       destination = Way.default_destination
       response = GoogleMapsDirectionsApiClient.get origin, destination
-      way = convert_from_google_json google_json
+      way = WayAdapter.convert_from_google_json(response)
+      way.client_id = client_id
+      way.save!
+      way
     end
-
-    private
-      def convert_from_google_json google_json
-        return nil if google_json.blank?
-        nil
-      end
   end
 end
