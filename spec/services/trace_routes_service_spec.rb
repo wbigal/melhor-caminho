@@ -6,7 +6,7 @@ RSpec.describe TraceRoutesService do
     context 'when exists route' do
       it 'creates new way' do
         expect {
-          TraceRoutesService.to_default_destination 'oi', -23.5507845, -46.6338611
+          TraceRoutesService.to_default_destination '12345', -23.5507845, -46.6338611
         }.to change(Way, :count).by(1)
       end
     end
