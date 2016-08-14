@@ -1,14 +1,15 @@
 class Way
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Waypointable
   include Measurable
 
   embeds_many :steps
+  embeds_one :start_waypoint, as: :waypointable
+  embeds_one :end_waypoint, as: :waypointable
 
-  field :query_id, type: String
+  field :client_id, type: String
 
-  validates :query_id, presence: true, uniqueness: true
-
-  index({ query_id: 1 }, { unique: true, background: true })
+  validates :client_id, presence: true
+  validates :start_waypoint, presence: true
+  validates :end_waypoint, presence: true
 end

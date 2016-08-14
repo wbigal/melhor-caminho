@@ -1,4 +1,6 @@
-shared_examples_for 'waypointable' do
+require 'rails_helper'
+
+RSpec.describe Waypoint, type: :model do
   context 'fields' do
     it { is_expected.to have_field(:location).of_type(String) }
     it { is_expected.to have_field(:latitude).of_type(Float) }
