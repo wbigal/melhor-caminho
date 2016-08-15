@@ -1,5 +1,7 @@
 # Melhor Caminho
 
+<img alt="Status?branch=master" src="https://www.codeship.io/projects/fa821e30-44d3-0134-8e29-02154be91b77/status?branch=master" />
+
 Este projeto utiliza o Google Directions API para traçar a melhor rota entre a 
 localização do usuário até uma localização pré-definida.
 
