@@ -9,6 +9,7 @@ $map_height: 100%;
   width: $map_width;
   height: $map_height;
   min-height: $map_height;
+  background: image_url('loading.gif') no - repeat center center;
 }
 
 html, body {
