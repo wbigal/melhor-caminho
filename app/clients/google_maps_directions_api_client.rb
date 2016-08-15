@@ -24,7 +24,8 @@ class GoogleMapsDirectionsApiClient
           mode: 'driving',
           units: 'metric',
           language: 'pt-BR',
-          departure_time: 'now'
+          departure_time: 'now',
+          key: ENV['GOOGLE_API_SERVER_KEY']
         }
       end
 

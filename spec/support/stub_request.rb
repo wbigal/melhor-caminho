@@ -4,7 +4,7 @@ RSpec.configure do |config|
   config.before(:each) do
     stub_request(
         :get,
-        "https://maps.googleapis.com/maps/api/directions/json?departure_time=now&destination=-23.594908,-46.686052&language=pt-BR&mode=driving&origin=-23.5507845,-46.6338611&units=metric"
+        "https://maps.googleapis.com/maps/api/directions/json?departure_time=now&destination=-23.594908,-46.686052&key=#{ENV['GOOGLE_API_SERVER_KEY']}&language=pt-BR&mode=driving&origin=-23.5507845,-46.6338611&units=metric"
       )
       .with(
         headers: {
@@ -21,7 +21,7 @@ RSpec.configure do |config|
 
     stub_request(
         :get,
-        "https://maps.googleapis.com/maps/api/directions/json?departure_time=now&destination=&language=pt-BR&mode=driving&origin=&units=metric"
+        "https://maps.googleapis.com/maps/api/directions/json?departure_time=now&destination=&key=#{ENV['GOOGLE_API_SERVER_KEY']}&language=pt-BR&mode=driving&origin=&units=metric"
       )
       .with(
         headers: {
@@ -38,7 +38,7 @@ RSpec.configure do |config|
 
     stub_request(
         :get,
-        "https://maps.googleapis.com/maps/api/directions/json?departure_time=now&destination=1,1&language=pt-BR&mode=driving&origin=1,1&units=metric"
+        "https://maps.googleapis.com/maps/api/directions/json?departure_time=now&destination=1,1&key=#{ENV['GOOGLE_API_SERVER_KEY']}&language=pt-BR&mode=driving&origin=1,1&units=metric"
       )
       .with(
         headers: {
