@@ -9,6 +9,10 @@ O Melhor Caminho utiliza o Ruby 2.3.1 e Rails 5.0, MongoDB, Heroku e Codeship.
 
 URL do site: https://melhor-caminho.herokuapp.com/
 
+## Configurando variáveis de ambiente local
+
+Para rodar o projeto é necessário criar o arquivo `.env` na raíz do projeto. Utilize o arquivo `.env.sample` como modelo, mas não altere as chaves `LATITUDE_DEFAULT_DESTINATION` e `LONGITUDE_DEFAULT_DESTINATION` para não confundir o webmock.
+
 ## Rodando local com Docker
 
 Para executar com Docker é necessário ter o Docker já configurando.
