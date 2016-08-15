@@ -3,7 +3,7 @@ class TraceRoutesController < ApplicationController
   end
 
   def create
-    way = TraceRoutesService.to_default_destination 'none', lat, lng
+    way = TraceRoutesService.to_default_destination client_id, lat, lng
     @way = TraceRoutes::WayDecorator.for(way)
     render json: @way
   end
@@ -15,5 +15,12 @@ class TraceRoutesController < ApplicationController
 
     def lng
       params[:lng]
+    end
+
+    def client_id
+      if cookies[:client_id].blank?
+        cookies.permanent[:client_id] = SecureRandom.uuid
+      end
+      cookies[:client_id]
     end
 end

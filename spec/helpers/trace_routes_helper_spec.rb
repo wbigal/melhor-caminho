@@ -10,5 +10,7 @@ require 'rails_helper'
 #     end
 #   end
 # end
+
 RSpec.describe TraceRoutesHelper, type: :helper do
+  it { expect(helper.google_maps_key).to eq(ENV['GOOGLE_API_BROWSER_KEY']) }
 end
