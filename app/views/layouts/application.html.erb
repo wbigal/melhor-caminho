@@ -9,7 +9,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container fill">
+      <%= yield %>
+    </div>
     <%= yield(:js) %>
   </body>
 </html>

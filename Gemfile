@@ -20,6 +20,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'mongoid', '6.0.0.beta'
 # Simple, but flexible HTTP client library, with support for multiple backends.
 gem 'faraday', '~> 0.9.2'
+# Official Sass port of Bootstrap 2 and 3.
+gem 'bootstrap-sass', '~> 3.3.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

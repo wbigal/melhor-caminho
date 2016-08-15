@@ -2,7 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$map_width: 100%;
+$map_height: 100%;
+
 #map {
-  width:755px;
-  height:555px;
+  width: $map_width;
+  height: $map_height;
+  min-height: $map_height;
+}
+
+html, body {
+  height: $map_height;
+}
+
+.fill {
+  min-height: $map_height;
+  height: $map_height;
+}
+
+.container {
+  width: $map_width;
+  padding-left: 0;
+  padding-right: 0;
 }
