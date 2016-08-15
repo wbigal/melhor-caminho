@@ -63,9 +63,8 @@ group :development do
 end
 
 group :test do
-  # Collection of testing matchers extracted from Shoulda
-  # gem 'shoulda-matchers', require: false
-
+  gem 'rails-controller-testing'
+  
   # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
   gem 'database_cleaner'
 

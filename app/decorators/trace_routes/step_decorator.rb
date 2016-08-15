@@ -3,8 +3,6 @@ class TraceRoutes::StepDecorator
     new(step)
   end
 
-  attr_reader :step
-
   def initialize(step)
     @step = step
   end
@@ -32,4 +30,18 @@ class TraceRoutes::StepDecorator
   def end_location
     [ @step.end_waypoint.latitude, @step.end_waypoint.longitude ]
   end
+
+  def as_json options = nil
+    {
+      distance: self.distance,
+      duration: self.duration,
+      start_location: self.start_location,
+      end_location: self.end_location,
+      html_instructions: self.html_instructions,
+      maneuver: self.maneuver
+    }
+  end
+
+  private
+    attr_reader :step
 end

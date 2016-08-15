@@ -3,8 +3,6 @@ class TraceRoutes::WayDecorator
     new(way)
   end
 
-  attr_reader :way
-
   def initialize(way)
     @way = way
   end
@@ -31,5 +29,20 @@ class TraceRoutes::WayDecorator
     @way.steps.each do |step|
       decorated_steps << TraceRoutes::StepDecorator.for(step)
     end
+
+    decorated_steps
   end
+
+  def as_json options = nil
+    {
+      distance: self.distance,
+      duration: self.duration,
+      start_location: self.start_location,
+      end_location: self.end_location,
+      steps: steps.map(&:as_json)
+    }
+  end
+
+  private
+    attr_reader :way
 end
