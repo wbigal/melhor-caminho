@@ -14,6 +14,7 @@ class GoogleMapsDirectionsApiClient
         Faraday.new(:url => 'https://maps.googleapis.com') do |c|
           c.use Faraday::Request::UrlEncoded
           c.use Faraday::Adapter::NetHttp
+          c.use Faraday::Response::Logger unless Rails.env.test?
         end
       end
 
