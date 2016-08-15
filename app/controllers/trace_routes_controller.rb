@@ -1,0 +1,2 @@
+class TraceRoutesController < ApplicationController
+end
