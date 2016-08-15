@@ -1,24 +1,22 @@
-# README
+# Melhor Caminho
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este projeto utiliza o Google Directions API para traçar a melhor rota entre a 
+localização do usuário até uma localização pré-definida.
 
-Things you may want to cover:
+O Melhor Caminho utiliza o Ruby 2.3.1 e Rails 5.0, MongoDB, Heroku e Codeship.
 
-* Ruby version
+URL do site: https://melhor-caminho.herokuapp.com/
 
-* System dependencies
+## Rodando local com Docker
 
-* Configuration
+Para executar com Docker é necessário ter o Docker já configurando.
 
-* Database creation
+- Para subir o ambiente pela primeira vez: `./docker-setup.sh`
 
-* Database initialization
+- Para subir o ambiente as demais vezes: `./docker-up.sh`
 
-* How to run the test suite
+## Rodando local sem Docker
 
-* Services (job queues, cache servers, search engines, etc.)
+Para rodar sem docker você precisa ser disponível um servidor do MongoDB.
 
-* Deployment instructions
-
-* ...
+Rodando sem o Docker é possível utilizar o *guard* para rodar os testes sempre que um arquivo for modificado, execute no terminal: `guard`
