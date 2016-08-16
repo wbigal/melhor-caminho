@@ -1,4 +1,7 @@
 class TraceRoutes::WayDecorator
+  include ActionView::Helpers::DateHelper
+  include ActionView::Helpers::NumberHelper
+
   def self.for(way)
     new(way)
   end
@@ -8,11 +11,11 @@ class TraceRoutes::WayDecorator
   end
 
   def distance
-    @way.distance
+    number_to_human(@way.distance, units: :distance)
   end
 
   def duration
-    @way.duration
+    distance_of_time_in_words(@way.duration)
   end
 
   def start_location

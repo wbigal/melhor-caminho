@@ -1,4 +1,7 @@
 class TraceRoutes::StepDecorator
+  include ActionView::Helpers::DateHelper
+  include ActionView::Helpers::NumberHelper
+
   def self.for(step)
     new(step)
   end
@@ -8,11 +11,11 @@ class TraceRoutes::StepDecorator
   end
 
   def distance
-    @step.distance
+    number_to_human(@step.distance, units: :distance)
   end
 
   def duration
-    @step.duration
+    distance_of_time_in_words(@step.duration)
   end
 
   def html_instructions

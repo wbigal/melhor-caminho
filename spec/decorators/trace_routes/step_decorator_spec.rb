@@ -16,8 +16,8 @@ RSpec.describe TraceRoutes::StepDecorator do
 
   subject(:step_decorator) { TraceRoutes::StepDecorator.for(step) }
 
-  it { expect(step_decorator.distance).to eq(step.distance) }
-  it { expect(step_decorator.duration).to eq(step.duration) }
+  it { expect(step_decorator.distance).to eq('34 metros') }
+  it { expect(step_decorator.duration).to eq('1 minuto') }
   it { expect(step_decorator.html_instructions).to eq(step.html_instructions) }
   it { expect(step_decorator.start_location).to eq([-23.5507845,-46.6338611]) }
   it { expect(step_decorator.end_location).to eq([-43.5507845,-26.6338611]) }
