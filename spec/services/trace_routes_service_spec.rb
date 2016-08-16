@@ -10,5 +10,13 @@ RSpec.describe TraceRoutesService do
         }.to change(Way, :count).by(1)
       end
     end
+
+    context 'when not exists route' do
+      it 'returns nil' do
+        GoogleMapsDirectionsApiClient.stub(:get).and_raise(GoogleMapsDirectionsApiClient::GoogleApiException)
+        way = TraceRoutesService.to_default_destination '12345', -23.5507845, -46.6338611
+        expect(way).to be_nil
+      end
+    end
   end
 end

@@ -2,6 +2,9 @@ class TraceRoutesService
   class << self
     def to_default_destination client_id, lat_origin, lng_origin
       create_way(client_id, lat_origin, lng_origin)
+    rescue GoogleMapsDirectionsApiClient::GoogleApiException => error
+      Rails.logger.error error
+      return nil
     end
 
     private
