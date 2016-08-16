@@ -26,3 +26,27 @@ html, body {
   padding-left: 0;
   padding-right: 0;
 }
+
+#details {
+  -moz-user-select: none;
+  background-clip: padding-box;
+  background-color: #fff;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+  color: #000;
+  direction: ltr;
+  font-family: Roboto,Arial,sans-serif;
+  font-size: 12px;
+  padding: 8px;
+  padding-top: 0;
+  margin-right: 10px;
+}
+
+#details h3 {
+  margin-top: 0;
+}
+
+#details img {
+  vertical-align: middle;
+}
