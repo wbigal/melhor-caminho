@@ -15,6 +15,8 @@ RSpec.describe TraceRoutes::WayDecorator do
 
   subject(:way_decorator) { TraceRoutes::WayDecorator.for(way) }
 
+  it { expect(way_decorator.start_address).to eq(way.start_waypoint.location) }
+  it { expect(way_decorator.end_address).to eq(way.start_waypoint.location) }
   it { expect(way_decorator.distance).to eq('21 metros') }
   it { expect(way_decorator.duration).to eq('1 minuto') }
   it { expect(way_decorator.start_location).to eq([-23.5507845,-46.6338611]) }

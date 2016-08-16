@@ -88,6 +88,7 @@ var initMap = function() {
       strokeWeight: 2
     });
 
+    writeStepByStep(traceData);
     routePath.setMap(map);
     centerMap(traceData.start_location, traceData.end_location);
   }
@@ -116,9 +117,25 @@ var initMap = function() {
     var div = document.createElement('div');
     div.innerHTML = '<strong>Distância:</strong> '+ traceData.distance +'<br>';
     div.innerHTML += '<strong>Duração:</strong> '+ traceData.duration;
+    div.innerHTML += '<br><br><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#stepByStepModal">Passo a Passo</button>'
     details.appendChild(div);
 
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(details);
+  }
+
+  this.writeStepByStep = function(traceData) {
+    var div = document.getElementById('stepByStep');
+    div.innerHTML = '<h5>Rota de '+ traceData.start_address +' até '+ traceData.end_address +'</h5><hr>';
+
+    var steps = document.createElement('ul');
+
+    for (var i = 0; i < traceData.steps.length; i++) {
+      var step = document.createElement('li');
+      step.innerHTML = traceData.steps[i].html_instructions +' ('+ traceData.steps[i].distance +')';
+      steps.appendChild(step);
+    }
+
+    div.appendChild(steps);
   }
 
   loadUserLocationAndTraceRoute();

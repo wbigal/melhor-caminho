@@ -18,6 +18,14 @@ class TraceRoutes::WayDecorator
     distance_of_time_in_words(@way.duration)
   end
 
+  def start_address
+    @way.start_waypoint.location
+  end
+
+  def end_address
+    @way.end_waypoint.location
+  end
+
   def start_location
     [ @way.start_waypoint.latitude, @way.start_waypoint.longitude ]
   end
@@ -42,6 +50,8 @@ class TraceRoutes::WayDecorator
       duration: self.duration,
       start_location: self.start_location,
       end_location: self.end_location,
+      start_address: self.start_address,
+      end_address: self.end_address,
       steps: steps.map(&:as_json)
     }
   end
