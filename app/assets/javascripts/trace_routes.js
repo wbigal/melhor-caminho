@@ -89,7 +89,15 @@ var initMap = function() {
     });
 
     routePath.setMap(map);
-    map.setCenter(new google.maps.LatLng(traceData.start_location[0], traceData.start_location[1]));
+    centerMap(traceData.start_location, traceData.end_location);
+  }
+
+  this.centerMap = function(start_location, end_location) {
+    var latlngbounds = new google.maps.LatLngBounds();
+    latlngbounds.extend(new google.maps.LatLng(start_location[0], start_location[1]));
+    latlngbounds.extend(new google.maps.LatLng(end_location[0], end_location[1]));
+    map.setCenter(latlngbounds.getCenter());
+    map.fitBounds(latlngbounds);
   }
 
   this.addMarker = function (feature) {
