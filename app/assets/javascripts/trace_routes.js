@@ -120,7 +120,7 @@ var initMap = function() {
     div.innerHTML += '<br><br><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#stepByStepModal">Passo a Passo</button>'
     details.appendChild(div);
 
-    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(details);
+    map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(details);
   }
 
   this.writeStepByStep = function(traceData) {
