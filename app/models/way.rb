@@ -9,6 +9,8 @@ class Way
 
   field :client_id, type: String
 
+  index client_id: 1
+
   validates :client_id, presence: true
   validates :start_waypoint, presence: true
   validates :end_waypoint, presence: true
