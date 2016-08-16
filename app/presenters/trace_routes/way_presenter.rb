@@ -1,4 +1,4 @@
-class TraceRoutes::WayDecorator
+class TraceRoutes::WayPresenter
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::NumberHelper
 
@@ -38,7 +38,7 @@ class TraceRoutes::WayDecorator
     decorated_steps = []
 
     @way.steps.each do |step|
-      decorated_steps << TraceRoutes::StepDecorator.for(step)
+      decorated_steps << TraceRoutes::StepPresenter.for(step)
     end
 
     decorated_steps

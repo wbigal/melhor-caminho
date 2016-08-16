@@ -8,7 +8,7 @@ class TraceRoutesController < ApplicationController
     if way.blank?
       render json: nil
     else
-      render json: TraceRoutes::WayDecorator.for(way)
+      render json: TraceRoutes::WayPresenter.for(way)
     end
   end
 

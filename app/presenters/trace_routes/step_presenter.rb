@@ -1,4 +1,4 @@
-class TraceRoutes::StepDecorator
+class TraceRoutes::StepPresenter
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::NumberHelper
 
