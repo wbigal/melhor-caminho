@@ -1,6 +1,15 @@
 "use strict";
 
 var initMap = function() {
+  var icons = {
+    origin: {
+      icon: '/images/mapicons/truck.png'
+    },
+    destination: {
+      icon: '/images/mapicons/destination.png'
+    }
+  };
+
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 16,
     center: {
@@ -32,7 +41,14 @@ var initMap = function() {
         lng: longitude
       },
       success: function(data) {
-        updateMap(data);
+        if (data) {
+          updateMap(data);
+        } else {
+          alert('Desculpe, nenhuma rota foi encontrada.');
+        }
+      },
+      error: function() {
+        alert('Parece que algo deu errado no servidor :(');
       }
     });
   }
@@ -42,12 +58,27 @@ var initMap = function() {
 
     createInfoPanel(traceData);
 
+    addMarker({
+      position: new google.maps.LatLng(traceData.start_location[0], traceData.start_location[1]),
+      type: 'origin'
+    });
+
+    addMarker({
+      position: new google.maps.LatLng(traceData.end_location[0], traceData.end_location[1]),
+      type: 'destination'
+    });
+
     for(var i = 0; i < traceData.steps.length; i++) {
       routeCoordinates.push({
         lat: traceData.steps[i].start_location[0],
         lng: traceData.steps[i].start_location[1]
-      })
+      });
     }
+
+    routeCoordinates.push({
+      lat: traceData.end_location[0],
+      lng: traceData.end_location[1]
+    })
 
     var routePath = new google.maps.Polyline({
       path: routeCoordinates,
@@ -59,6 +90,14 @@ var initMap = function() {
 
     routePath.setMap(map);
     map.setCenter(new google.maps.LatLng(traceData.start_location[0], traceData.start_location[1]));
+  }
+
+  this.addMarker = function (feature) {
+    var marker = new google.maps.Marker({
+      position: feature.position,
+      icon: icons[feature.type].icon,
+      map: map
+    });
   }
 
   this.createInfoPanel = function(traceData) {
