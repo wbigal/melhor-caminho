@@ -4,8 +4,12 @@ class TraceRoutesController < ApplicationController
 
   def create
     way = TraceRoutesService.to_default_destination client_id, lat, lng
-    @way = TraceRoutes::WayDecorator.for(way)
-    render json: @way
+
+    if way.blank?
+      render json: nil
+    else
+      render json: TraceRoutes::WayDecorator.for(way)
+    end
   end
 
   private
